@@ -1,7 +1,7 @@
 echo '欢迎使用MacOS Helper Shell'
 echo '由明燊开发,小叶、Jerry改进,在github开源,禁止马克喵和其他付费站点转载'
 echo '如果遇到“Password”提示,请放心输入你电脑开机密码.脚本已经开源,不会上传数据.'
-echo  "\033[31m 0.0.3-beta \033[0m"
+echo  "\033[31m 0.0.02-beta \033[0m"
 function installBrew {
     echo '首先我们要检测你是否安装Xcode CLT.'
     if xcode-select -p &> /dev/null; then
