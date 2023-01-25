@@ -53,8 +53,7 @@ function main {
     echo '[5].安装Xcode CLT(因国内网络问题,可能等待时间较长或安装失败)'
     echo '[6].安装Homebrew(耗时可能有点长,请耐心等待,已经装过就不用装了)'
     echo '[7].查看硬盘读写数据(需安装支持软件)'
-    echo '[8].关联常用压缩包格式为FastZip打开(需安装支持软件)'
-    echo '[9].查询SIP开关状态'
+    echo '[8].查询SIP开关状态'
     echo '[n].退出'
     read inputNumber
     if [ "$inputNumber" == '1' ]
@@ -127,9 +126,6 @@ function main {
             fi
         fi
      elif [ "$inputNumber" == '8' ]
-     then
-        curl -L https://macapp1.oss-cn-hangzhou.aliyuncs.com/fastzip-default-format_by_yeenjie.sh -O && sh fastzip-default-format_by_yeenjie.sh
-     elif [ "$inputNumber" == '9' ]
      then
          status=$(csrutil status)
          if [[ $status == *"enabled"* ]]; then
