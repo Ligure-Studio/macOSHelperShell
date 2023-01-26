@@ -1,4 +1,4 @@
-<h4 align="right"><strong>中文</strong> | <a href="">English（暂无）</a></h4>
+<h4 align="right"><strong>中文</strong> | <a href="https://github.com/FANChenjia/MacOSHelperShell/blob/main/README_EN.md">English</a></h4>
 <p align="center">
     <img src="./assets/logo1.jpg" width=280/>
 </p>
@@ -9,6 +9,7 @@
   <a href="https://github.com/FANChenjia/MacOSHelperShell/releases" target="_blank">
     <img src="https://img.shields.io/github/v/release/FANChenjia/MacOSHelperShell?display_name=tag" alt="GitHub Release"/></a>
 </div>
+
 
 
 
