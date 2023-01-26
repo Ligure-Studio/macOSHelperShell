@@ -13,7 +13,7 @@
 
 
 
-一款简单易用的MacOS帮助脚本，可以便捷的实现一些功能。
+一款简单易用的macOS帮助脚本，可以便捷的实现一些功能。
 
 该脚本由[明燊](https://github.com/FANChenjia)、[小叶](https://github.com/yeenjie123456)、[Jerry](https://github.com/Jerry-XU1010)共同开发和维护，非常好用，具体怎么好用你用了就知道了。
 
