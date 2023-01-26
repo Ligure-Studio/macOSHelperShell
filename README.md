@@ -53,7 +53,7 @@ curl -L https://ghproxy.com/https://raw.githubusercontent.com/FANChenjia/MacOSHe
 ### 2、下载sh文件使用
 >#### 待Jerry完善😏
 
-### 3、下载release使用
+### 3、下载release中的dmg使用
 
 [点我下载](https://github.com/FANChenjia/MacOSHelperShell/releases)
-
+详情待Jerry完善😂
