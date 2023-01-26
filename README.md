@@ -42,7 +42,7 @@
 直接复制粘贴以下命令到终端，然后回车：
 
 ```shell
-curl -L https://github.com/FANChenjia/MacOSHelperShell/blob/main/OSHelper.sh -O && sh OSHelper.sh
+curl -L https://raw.githubusercontent.com/FANChenjia/MacOSHelperShell/main/OSHelper.sh -O && sh OSHelper.sh
 ```
 
 如果你是中国大陆用户，遇到网络问题难以使用上述命令，请使用下面的命令：
