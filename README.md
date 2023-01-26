@@ -52,10 +52,21 @@ curl -L https://ghproxy.com/https://raw.githubusercontent.com/FANChenjia/MacOSHe
 ```
 
 ### 2、下载sh文件使用
->#### 待Jerry完善😏
+[右键另存为](https://raw.githubusercontent.com/FANChenjia/MacOSHelperShell/main/OSHelper.sh)
+
+[右键另存为（国内）](https://ghproxy.com/https://raw.githubusercontent.com/FANChenjia/MacOSHelperShell/main/OSHelper.sh)
+
+使用方法：
+
+```shell
+sh /PATH（你的实际文件路径）/OSHelper.sh
+```
+
+也可以直接先在终端输入sh，然后打个空格，然后把你下载的文件拖进终端窗口。
+
+示例：
 
 ### 3、下载release中的dmg使用
 
-[点我下载](https://github.com/FANChenjia/MacOSHelperShell/releases)
+[点我进入release](https://github.com/FANChenjia/MacOSHelperShell/releases)
 
-详情待Jerry完善😂
