@@ -51,6 +51,8 @@ curl -L https://raw.githubusercontent.com/FANChenjia/MacOSHelperShell/main/OSHel
 curl -L https://ghproxy.com/https://raw.githubusercontent.com/FANChenjia/MacOSHelperShell/main/OSHelper.sh -O && sh OSHelper.sh
 ```
 
+🚀优点：无需手动下载文件，每次使用都保证是最新版。
+
 示例：
 
 ![example1](./assets/example1.gif)
@@ -71,10 +73,14 @@ sh /PATH（你的实际文件路径）/OSHelper.sh
 
 示例：![example2](./assets/example2.gif)
 
-### 3、下载release中的dmg使用
+🚀优点：离线使用，版本手动更新。
+
+### 3、下载release中的dmg使用（LTSC长期服务版本）
 
 [点我进入release](https://github.com/FANChenjia/MacOSHelperShell/releases)
 
 示例：![example3](./assets/example3.gif)
+
+🚀优点：长期支持，使用方便，无需经常更新。
 
 待完善……
