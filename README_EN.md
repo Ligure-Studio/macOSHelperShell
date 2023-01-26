@@ -56,3 +56,5 @@ curl -L https://ghproxy.com/https://raw.githubusercontent.com/FANChenjia/MacOSHe
 ### Download the release:
 
 [Click me to download](https://github.com/FANChenjia/MacOSHelperShell/releases)
+
+Waiting for jerry perfect this readme Eng version...
