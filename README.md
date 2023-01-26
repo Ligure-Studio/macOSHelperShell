@@ -8,7 +8,7 @@
   <img src="https://img.shields.io/github/forks/FANChenjia/MacOSHelperShell?label=Forks" alt="GitHub Forks"/> 
   <a href="https://github.com/FANChenjia/MacOSHelperShell/releases" target="_blank">
     <img src="https://img.shields.io/github/v/release/FANChenjia/MacOSHelperShell?display_name=tag" alt="GitHub Release"/></a>
-
+</div>
 
 
 ---
@@ -51,6 +51,10 @@ curl -L https://github.com/FANChenjia/MacOSHelperShell/blob/main/OSHelper.sh -O 
 curl -L https://ghproxy.com/https://raw.githubusercontent.com/FANChenjia/MacOSHelperShell/main/OSHelper.sh -O && sh OSHelper.sh
 ```
 
-### 2、下载release使用
+### 2、下载sh文件使用
+>#### 待Jerry完善😏
+
+### 3、下载release使用
 
 [点我下载](https://github.com/FANChenjia/MacOSHelperShell/releases)
+
