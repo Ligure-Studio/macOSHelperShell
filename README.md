@@ -75,12 +75,12 @@ sh /PATH（你的实际文件路径）/OSHelper.sh
 
 🚀优点：离线使用，版本手动更新。
 
-### 3、下载release中的dmg使用（LTSC长期服务版本）
+### 3、下载release中的dmg使用
 
 [点我进入release](https://github.com/FANChenjia/MacOSHelperShell/releases)
 
 示例：![example3](./assets/example3.gif)
 
-🚀优点：长期支持，使用方便，无需经常更新。
+🚀优点：使用方便。
 
 待完善……
