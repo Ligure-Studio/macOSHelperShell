@@ -1,6 +1,6 @@
 <h4 align="right"><strong>中文</strong> | <a href="https://github.com/FANChenjia/MacOSHelperShell/blob/main/README_EN.md">English</a></h4>
 <p align="center">
-    <img src="./assets/logo1.jpg" width=280/>
+    <img src="./assets/logo.jpg" width=280/>
 </p>
 <h1 align="center">MacOSHelperShell</h1>
 <div align="center">   
@@ -31,7 +31,8 @@
 | 6    | 安装Homebrew(耗时可能有点长,请耐心等待,已经装过就不用装了) |      |
 | 7    | 查看硬盘读写数据(需安装支持软件)                           |      |
 | 8    | 查询SIP开关状态                                            |      |
-|      | 请期待更多新功能……                                       |      |
+| 9    | MD5校验                                                    |      |
+|      | 请期待更多新功能……                                         |      |
 
 
 
@@ -75,12 +76,12 @@ sh /PATH（你的实际文件路径）/OSHelper.sh
 
 🚀优点：离线使用，版本手动更新。
 
-### 3、下载release中的dmg使用（LTSC长期服务版本）
+### 3、下载release中的dmg使用
 
 [点我进入release](https://github.com/FANChenjia/MacOSHelperShell/releases)
 
 示例：![example3](./assets/example3.gif)
 
-🚀优点：长期支持，使用方便，无需经常更新。
+🚀优点：使用方便。
 
 待完善……

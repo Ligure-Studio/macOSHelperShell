@@ -125,14 +125,27 @@ function main {
                 fi
             fi
         fi
-     elif [ "$inputNumber" == '8' ]
-     then
-         status=$(csrutil status)
-         if [[ $status == *"enabled"* ]]; then
-             echo "✅您已打开SIP!"
-         else
-             echo "❌您已关闭SIP!"
-         fi
+    elif [ "$inputNumber" == '8' ]
+    then
+        status=$(csrutil status)
+        if [[ $status == *"enabled"* ]]; then
+            echo "✅您已打开SIP!"
+        else
+            echo "❌您已关闭SIP!"
+        fi
+    elif [ "$inputNumber" == '9' ]
+    then
+        echo '😀请输入文件路径(可将文件拖进终端)👉'
+        read filePath
+        echo '😀请输入正确MD5值👉'
+        read cMD5
+        echo '😁正在校验...'
+        md5=$(md5 $filePath)
+        if [[ $cMD5 == $md5 ]]; then
+            echo "✅恭喜你，文件正确！"
+        else
+            echo "❌文件错误"
+        fi
     elif [ "$inputNumber" == 'n' ]
     then
         echo '👍开源地址:https://github.com/FANChenjia/MacOSHelperShell'
