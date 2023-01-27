@@ -1,6 +1,6 @@
 <h4 align="right"><strong>中文</strong> | <a href="https://github.com/FANChenjia/MacOSHelperShell/blob/main/README_EN.md">English</a></h4>
 <p align="center">
-    <img src="./assets/logo1.jpg" width=280/>
+    <img src="./assets/logo.jpg" width=280/>
 </p>
 <h1 align="center">MacOSHelperShell</h1>
 <div align="center">   
