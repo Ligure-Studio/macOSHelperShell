@@ -33,6 +33,7 @@ This script is jointly developed and maintained by [MingS](https://github.com/FA
 | 6      | Install Homebrew                                             |        |
 | 7      | View disk read and write data (support software required)    |        |
 | 8      | Check SIP status                                             |        |
+| 9      | MD5 checksum                                                 |        |
 |        | Adding more new functions...                                 |        |
 
 
