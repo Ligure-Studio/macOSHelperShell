@@ -81,6 +81,7 @@ curl -L https://ghproxy.com/https://raw.githubusercontent.com/FANChenjia/MacOSHe
 [右键另存为（beta）](https://raw.githubusercontent.com/FANChenjia/MacOSHelperShell/main/OSHelper_Beta.sh)
 
 [右键另存为（beta国内）](https://raw.githubusercontent.com/FANChenjia/MacOSHelperShell/main/OSHelper_Beta.sh)
+
 使用方法：
 
 ```shell
