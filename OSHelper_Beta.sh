@@ -2,7 +2,7 @@ echo '====欢迎使用MacOS Helper Shell===='
 echo '😁由OSHelper团队共同维护,基于 MIT LICENSE 开源。'
 echo '👍开源地址:https://github.com/FANChenjia/MacOSHelperShell'
 echo '❗️为保证功能顺利运行,请在出现提示时输入您电脑的开机密码(密码不会在界面上显示)'
-echo  "\033[31m 0.0.4-beta \033[0m"
+echo  "\033[31m 0.1.0-beta \033[0m"
 echo '------------------------------'
 sleep 1
 
