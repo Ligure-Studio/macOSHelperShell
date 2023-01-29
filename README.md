@@ -43,13 +43,27 @@
 直接复制粘贴以下命令到终端，然后回车：
 
 ```shell
-curl -L https://raw.githubusercontent.com/FANChenjia/MacOSHelperShell/main/OSHelper.sh -O && sh OSHelper.sh
+curl -L https://raw.githubusercontent.com/FANChenjia/MacOSHelperShell/main/OSHelper_Stable.sh -O && sh OSHelper_Stable.sh
 ```
 
 如果你是中国大陆用户，遇到网络问题难以使用上述命令，请使用下面的命令：
 
 ```shell
-curl -L https://ghproxy.com/https://raw.githubusercontent.com/FANChenjia/MacOSHelperShell/main/OSHelper.sh -O && sh OSHelper.sh
+curl -L https://ghproxy.com/https://raw.githubusercontent.com/FANChenjia/MacOSHelperShell/main/OSHelper_Stable.sh -O && sh OSHelper_Stable.sh
+```
+
+beta版：
+
+
+```shell
+curl -L https://raw.githubusercontent.com/FANChenjia/MacOSHelperShell/main/OSHelper_Beta.sh -O && sh OSHelper_Beta.sh
+```
+
+beta版（国内）：
+
+
+```shell
+curl -L https://ghproxy.com/https://raw.githubusercontent.com/FANChenjia/MacOSHelperShell/main/OSHelper_Beta.sh -O && sh OSHelper_Beta.sh
 ```
 
 🚀优点：无需手动下载文件，每次使用都保证是最新版。
@@ -60,10 +74,13 @@ curl -L https://ghproxy.com/https://raw.githubusercontent.com/FANChenjia/MacOSHe
 
 ### 2、下载sh文件使用
 
-[右键另存为](https://raw.githubusercontent.com/FANChenjia/MacOSHelperShell/main/OSHelper.sh)
+[右键另存为](https://raw.githubusercontent.com/FANChenjia/MacOSHelperShell/main/OSHelper_Stable.sh)
 
-[右键另存为（国内）](https://ghproxy.com/https://raw.githubusercontent.com/FANChenjia/MacOSHelperShell/main/OSHelper.sh)
+[右键另存为（国内）](https://ghproxy.com/https://raw.githubusercontent.com/FANChenjia/MacOSHelperShell/main/OSHelper_Stable.sh)
 
+[右键另存为（beta）](https://raw.githubusercontent.com/FANChenjia/MacOSHelperShell/main/OSHelper_Beta.sh)
+
+[右键另存为（beta国内）](https://raw.githubusercontent.com/FANChenjia/MacOSHelperShell/main/OSHelper_Beta.sh)
 使用方法：
 
 ```shell
