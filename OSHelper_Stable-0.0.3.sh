@@ -1,13 +1,10 @@
 echo '====欢迎使用MacOS Helper Shell===='
-echo '😁由OSHelper团队共同维护,基于 MIT LICENSE 开源,禁止马克喵和其他付费站点转载!'
+echo '😁由明燊、小叶、Jerry共同开发和维护,基于MIT协议开源'
 echo '👍开源地址:https://github.com/FANChenjia/MacOSHelperShell'
-echo '❗️为保证功能顺利运行,请在出现提示时输入您电脑的开机密码(密码不会在界面上显示)'
-echo  "\033[31m 0.0.4-beta \033[0m"
+echo '🤔如果遇到“Password”提示,请放心输入你电脑开机密码.脚本已经开源,不会上传数据.'
+echo  "\033[31m 0.0.3-beta \033[0m"
 echo '------------------------------'
 sleep 1
-
-# ===安装Homebrew函数===
-
 function installBrew {
     echo '❓首先我们要检测你是否安装Xcode CLT.'
     if xcode-select -p &> /dev/null; then
@@ -47,29 +44,29 @@ function installBrew {
         fi
     fi
 }
-
-#===安装Homebrew函数结束===
-
-#===系统功能函数===
-
-function OSFunction {
+function main {
+    echo '请选择功能:'
     echo '[1].开启"全部来源"'
-    echo '[2].清楚软件隔离属性(解决"已损坏"问题)'
-    echo '[3].将Dock栏恢复出厂设置'
-    echo '[4].刷新缩略图(适用于缩略图被抢)'
+    echo '[2].移除隔离属性(解决"已损坏问题")'
+    echo '[3].将Dock重置为默认'
+    echo '[4].清除缩略图缓存(适用于缩略图被抢)'
+    echo '[5].安装Xcode CLT(因国内网络问题,可能等待时间较长或安装失败)'
+    echo '[6].安装Homebrew(耗时可能有点长,请耐心等待,已经装过就不用装了)'
+    echo '[7].查看硬盘读写数据(需安装支持软件)'
+    echo '[8].查询SIP开关状态'
     echo '[n].退出'
-    read OSInputNumber #OS部分输入参数
-       if [ "$OSInputNumber" == '1' ]
+    read inputNumber
+    if [ "$inputNumber" == '1' ]
     then
         sudo spctl --master-disable
         echo '✅已完成'
-    elif [ "$OSInputNumber" == '2' ]
+    elif [ "$inputNumber" == '2' ]
     then
         echo '😀请输入软件路径(可将软件拖进终端)👉'
         read appPath
         sudo xattr -r -d com.apple.quarantine $appPath
         echo '✅已完成'
-    elif [ "$OSInputNumber" == '3' ]
+    elif [ "$inputNumber" == '3' ]
     then
         echo '⚠️ 你真的确认要操作吗?'
         echo '⚠️ 操作后Dock将重置为出厂设置且无法恢复!'
@@ -81,64 +78,26 @@ function OSFunction {
         else
             echo '❎将不会重置Dock'
         fi
-    elif [ "$OSnputNumber" == '4' ]
+    elif [ "$inputNumber" == '4' ]
     then
         sudo find /private/var/folders/ \( -name com.apple.dock.iconcache -or -name com.apple.iconservices \) -exec rm -rfv {} \;
         sudo rm -rf /Library/Caches/com.apple.iconservices.store;
         killall Dock
         killall Finder
         echo '✅已完成'
-    elif [ "$MainInputNumber" == 'n' ]
-    then
-    echo '👍开源地址:https://github.com/FANChenjia/MacOSHelperShell'
-    echo "\033[34m欢迎反馈问题或建议到 mingshen.work@ligure.eu.org,我会持续跟进 \033[0m"
-    sleep 1
-    exit 0
-    fi
-}
-
-#===系统功能函数结束===
-
-
-#===常用开发库安装函数===
-
-function devTools {
-    echo '[1].安装Xcode CLT(因国内网络问题,可能等待时间较长或安装失败)'
-    echo '[2].安装Homebrew(耗时可能有点长,请耐心等待,已经装过就不用装了)'
-    echo '[n].退出'
-    read DevInputNumber #Dev部分输入参数
-    if [ "$DevInputNumber" == '1' ]
+    elif [ "$inputNumber" == '5' ]
     then
         xcode-select --install
         echo '👌🏻理论上来讲你应该已经安装成功了,或者你已经安装过了(报error: command line tools are already installed错误).'
         echo '🤔如果报其他错(error),那多半是网络问题,请访问 https://developer.apple.com/download/all/ 登录您的Apple ID,然后手动下载.😁'
-    elif [ "$DevInputNumber" == '2' ]
+    elif [ "$inputNumber" == '6' ]
     then
         if which brew >/dev/null; then
             echo '✅你已经安装过了,无需重复安装!'
         else
             installBrew
         fi
-    elif [ "$MainInputNumber" == 'n' ]
-    then
-    echo '👍开源地址:https://github.com/FANChenjia/MacOSHelperShell'
-    echo "\033[34m欢迎反馈问题或建议到 mingshen.work@ligure.eu.org,我会持续跟进 \033[0m"
-    sleep 1
-    exit 0
-    fi
-}
-
-#===常用开发库安装函数结束===
-
-
-#===高级系统功能函数===
-
-function hyperOSFunction {
-    echo '[1].查看硬盘读写数据(需安装支持软件)'
-    echo '[2].查询SIP开关状态'
-    echo '[n].退出'
-    read hyperInputNumber #Hyper部分输入参数
-    if [ "$hyperInputNumber" == '1' ]
+    elif [ "$inputNumber" == '7' ]
     then
         if which smartctl >/dev/null; then
             echo "✅你已安装smartmontools,下面为你查询硬盘数据。😁"
@@ -166,59 +125,35 @@ function hyperOSFunction {
                 fi
             fi
         fi
-     elif [ "$HyperInputNumber" == '2' ]
-     then
-         status=$(csrutil status)
-         if [[ $status == *"enabled"* ]]; then
-             echo "✅您已打开SIP!"
-         else
-             echo "❌您已关闭SIP!"
-         fi
-    elif [ "$MainInputNumber" == 'n' ]
+    elif [ "$inputNumber" == '8' ]
     then
-    echo '👍开源地址:https://github.com/FANChenjia/MacOSHelperShell'
-    echo "\033[34m欢迎反馈问题或建议到 mingshen.work@ligure.eu.org,我会持续跟进 \033[0m"
-    sleep 1
-    exit 0
+        status=$(csrutil status)
+        if [[ $status == *"enabled"* ]]; then
+            echo "✅您已打开SIP!"
+        else
+            echo "❌您已关闭SIP!"
+        fi
+    elif [ "$inputNumber" == '9' ]
+    then
+        echo '😀请输入文件路径(可将文件拖进终端)👉'
+        read filePath
+        echo '😀请输入正确MD5值👉'
+        read cMD5
+        echo '😁正在校验...'
+        md5=$(md5 $filePath)
+        if [[ $cMD5 == $md5 ]]; then
+            echo "✅恭喜你，文件正确！"
+        else
+            echo "❌文件错误"
+        fi
+    elif [ "$inputNumber" == 'n' ]
+    then
+        echo '👍开源地址:https://github.com/FANChenjia/MacOSHelperShell'
+        echo "\033[34m欢迎反馈问题或建议到 mingshen.work@ligure.eu.org,我会持续跟进 \033[0m"
+        sleep 1
+        exit 0
     fi
+    main
 }
-
-#===高级系统功能函数结束===
-
-#===主函数===
-
-function main {
-    echo '请选择功能:'
-    echo '[1].一般系统功能'
-    echo '[2].开发库一键安装'
-    echo '[3].进阶系统功能'
-    echo '[n].退出'
-    read MainInputNumber
-    if [ "$MainInputNumber" == '1' ]
-    then
-    OSFunction
-    elif [ "$MainInputNumber" == '2' ]
-    then
-    devTools
-    elif [ "$MainInputNumber" == '3' ]
-    then
-    hyperOSFunction
-    elif [ "$MainInputNumber" == 'n' ]
-    then
-    echo '👍开源地址:https://github.com/FANChenjia/MacOSHelperShell'
-    echo "\033[34m欢迎反馈问题或建议到 mingshen.work@ligure.eu.org,我会持续跟进 \033[0m"
-    sleep 1
-    fi
-}
-
-#===主函数===
-
-
-
-#===执行主函数===
-
 main
-sleep 1
-exit 0
 
-#===执行主函数===
