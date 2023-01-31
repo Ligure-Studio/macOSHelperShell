@@ -1,13 +1,13 @@
-<h4 align="right"><strong>English</strong> | <a href="https://github.com/FANChenjia/MacOSHelperShell/blob/main/README.md">中文</a></h4>
+<h4 align="right"><strong>English</strong> | <a href="https://github.com/Ligure-Studio/MacOSHelperShell/blob/main/README.md">中文</a></h4>
 <p align="center">
     <img src="./assets/logo1.jpg" width=280/>
 </p>
 <h1 align="center">MacOSHelperShell</h1>
 <div align="center">   
-  <img src="https://img.shields.io/github/stars/FANChenjia/MacOSHelperShell?label=Stars" alt="GitHub Stars"/>
-  <img src="https://img.shields.io/github/forks/FANChenjia/MacOSHelperShell?label=Forks" alt="GitHub Forks"/> 
-  <a href="https://github.com/FANChenjia/MacOSHelperShell/releases" target="_blank">
-    <img src="https://img.shields.io/github/v/release/FANChenjia/MacOSHelperShell?display_name=tag" alt="GitHub Release"/></a>
+  <img src="https://img.shields.io/github/stars/Ligure-Studio/MacOSHelperShell?label=Stars" alt="GitHub Stars"/>
+  <img src="https://img.shields.io/github/forks/Ligure-Studio/MacOSHelperShell?label=Forks" alt="GitHub Forks"/> 
+  <a href="https://github.com/Ligure-Studio/MacOSHelperShell/releases" target="_blank">
+    <img src="https://img.shields.io/github/v/release/Ligure-Studio/MacOSHelperShell?display_name=tag" alt="GitHub Release"/></a>
 
 
 
