@@ -37,50 +37,48 @@
 
 
 ## 使用方法
+# 推荐使用beta版，体验新功能！Stable版一般适用于无法经常联网更新的用户。
 
 ### 1、终端快速使用（需联网）
 
 直接复制粘贴以下命令到终端，然后回车：
 
+
 ```shell
-curl -L https://raw.githubusercontent.com/FANChenjia/MacOSHelperShell/main/OSHelper_Stable.sh -O && sh OSHelper_Stable.sh
+curl -L https://raw.githubusercontent.com/Ligure-Studio/MacOSHelperShell/main/OSHelper_Stable.sh -O && sh OSHelper_Stable.sh
 ```
 
 如果你是中国大陆用户，遇到网络问题难以使用上述命令，请使用下面的命令：
 
 ```shell
-curl -L https://ghproxy.com/https://raw.githubusercontent.com/FANChenjia/MacOSHelperShell/main/OSHelper_Stable.sh -O && sh OSHelper_Stable.sh
+curl -L https://ghproxy.com/https://raw.githubusercontent.com/Ligure-Studio/MacOSHelperShell/main/OSHelper_Stable.sh -O && sh OSHelper_Stable.sh
 ```
 
 beta版：
 
 
 ```shell
-curl -L https://raw.githubusercontent.com/FANChenjia/MacOSHelperShell/main/OSHelper_Beta.sh -O && sh OSHelper_Beta.sh
+curl -L https://raw.githubusercontent.com/Ligure-Studio/MacOSHelperShell/main/OSHelper_Beta.sh -O && sh OSHelper_Beta.sh
 ```
 
 beta版（国内）：
 
 
 ```shell
-curl -L https://ghproxy.com/https://raw.githubusercontent.com/FANChenjia/MacOSHelperShell/main/OSHelper_Beta.sh -O && sh OSHelper_Beta.sh
+curl -L https://ghproxy.com/https://raw.githubusercontent.com/Ligure-Studio/MacOSHelperShell/main/OSHelper_Beta.sh -O && sh OSHelper_Beta.sh
 ```
 
-🚀优点：无需手动下载文件，每次使用都保证是最新版。
-
-示例：
-
-![example1](./assets/example1.gif)
+>🚀优点：无需手动下载文件，每次使用都保证是最新版。
 
 ### 2、下载sh文件使用
 
-[右键另存为](https://raw.githubusercontent.com/FANChenjia/MacOSHelperShell/main/OSHelper_Stable.sh)
+[右键另存为](https://raw.githubusercontent.com/Ligure-Studio/MacOSHelperShell/main/OSHelper_Stable.sh)
 
-[右键另存为（国内）](https://ghproxy.com/https://raw.githubusercontent.com/FANChenjia/MacOSHelperShell/main/OSHelper_Stable.sh)
+[右键另存为（国内）](https://ghproxy.com/https://raw.githubusercontent.com/Ligure-Studio/MacOSHelperShell/main/OSHelper_Stable.sh)
 
-[右键另存为（beta）](https://raw.githubusercontent.com/FANChenjia/MacOSHelperShell/main/OSHelper_Beta.sh)
+[右键另存为（beta）](https://raw.githubusercontent.com/Ligure-Studio/MacOSHelperShell/main/OSHelper_Beta.sh)
 
-[右键另存为（beta国内）](https://raw.githubusercontent.com/FANChenjia/MacOSHelperShell/main/OSHelper_Beta.sh)
+[右键另存为（beta国内）](https://raw.githubusercontent.com/Ligure-Studio/MacOSHelperShell/main/OSHelper_Beta.sh)
 
 使用方法：
 
@@ -90,16 +88,12 @@ sh /PATH（你的实际文件路径）/OSHelper.sh
 
 也可以直接先在终端输入sh，然后打个空格，然后把你下载的文件拖进终端窗口。
 
-示例：![example2](./assets/example2.gif)
+>🚀优点：离线使用，版本手动更新。
 
-🚀优点：离线使用，版本手动更新。
+### 3、下载release中的dmg使用 **（暂未更新，先别用）**
 
-### 3、下载release中的dmg使用
+[点我进入release](https://github.com/Ligure-Studio/MacOSHelperShell/releases)
 
-[点我进入release](https://github.com/FANChenjia/MacOSHelperShell/releases)
-
-示例：![example3](./assets/example3.gif)
-
-🚀优点：使用方便。
+>🚀优点：使用方便。
 
 待完善……
