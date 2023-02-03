@@ -1,8 +1,8 @@
 echo '====欢迎使用MacOS Helper Shell===='
-echo '😁由OSHelper团队共同维护,基于 MIT LICENSE 开源。'
-echo '👍开源地址:https://github.com/FANChenjia/MacOSHelperShell'
-echo '❗️为保证功能顺利运行,请在出现提示时输入您电脑的开机密码(密码不会在界面上显示)'
-echo  "\033[31m 0.1.0-beta \033[0m"
+echo '😁由Ligure Studio团队维护,基于 MIT LICENSE 开源。'
+echo '👍开源地址:https://github.com/Ligure-Studio/MacOSHelperShell'
+echo '❗️为保证功能顺利运行,请在出现Password提示时输入您电脑的开机密码(密码不会在界面上显示)'
+echo  "\033[31m 0.1.1-beta \033[0m"
 echo '------------------------------'
 sleep 1
 
@@ -95,8 +95,8 @@ function OSFunction {
         echo '✅已完成'
     elif [ "$MainInputNumber" == 'n' ]
     then
-    echo '👍开源地址:https://github.com/FANChenjia/MacOSHelperShell'
-    echo "\033[34m欢迎反馈问题或建议到 mingshen.work@ligure.eu.org,我会持续跟进 \033[0m"
+    echo '👍开源地址:https://github.com/Ligure-Studio/MacOSHelperShell'
+    echo "\033[34m欢迎反馈问题或建议到 service@ligure.cn ,我们会持续跟进 \033[0m"
     sleep 1
     exit 0
     fi
@@ -126,8 +126,8 @@ function devTools {
         fi
     elif [ "$MainInputNumber" == 'n' ]
     then
-    echo '👍开源地址:https://github.com/FANChenjia/MacOSHelperShell'
-    echo "\033[34m欢迎反馈问题或建议到 mingshen.work@ligure.eu.org,我会持续跟进 \033[0m"
+        echo '👍开源地址:https://github.com/Ligure-Studio/MacOSHelperShell'
+        echo "\033[34m欢迎反馈问题或建议到 service@ligure.cn ,我们会持续跟进 \033[0m"
     sleep 1
     exit 0
     fi
@@ -181,8 +181,8 @@ function hyperOSFunction {
         fi
     elif [ "$MainInputNumber" == 'n' ]
     then
-         echo '👍开源地址:https://github.com/FANChenjia/MacOSHelperShell'
-         echo "\033[34m欢迎反馈问题或建议到 mingshen.work@ligure.eu.org,我会持续跟进 \033[0m"
+        echo '👍开源地址:https://github.com/Ligure-Studio/MacOSHelperShell'
+        echo "\033[34m欢迎反馈问题或建议到 service@ligure.cn ,我们会持续跟进 \033[0m"
          sleep 1
          exit 0
     fi
@@ -219,8 +219,8 @@ function verifyTools {
         fi
     elif [ "$verifyInputNumber" == 'n' ]
     then
-         echo '👍开源地址:https://github.com/FANChenjia/MacOSHelperShell'
-         echo "\033[34m欢迎反馈问题或建议到 mingshen.work@ligure.eu.org,我会持续跟进 \033[0m"
+        echo '👍开源地址:https://github.com/Ligure-Studio/MacOSHelperShell'
+        echo "\033[34m欢迎反馈问题或建议到 service@ligure.cn ,我们会持续跟进 \033[0m"
          sleep 1
          exit 0
     fi
@@ -253,8 +253,8 @@ function main {
     verifyTools
     elif [ "$MainInputNumber" == 'n' ]
     then
-    echo '👍开源地址:https://github.com/FANChenjia/MacOSHelperShell'
-    echo "\033[34m欢迎反馈问题或建议到 mingshen.work@ligure.eu.org,我会持续跟进 \033[0m"
+        echo '👍开源地址:https://github.com/Ligure-Studio/MacOSHelperShell'
+        echo "\033[34m欢迎反馈问题或建议到 service@ligure.cn ,我们会持续跟进 \033[0m"
     sleep 1
     fi
 }
