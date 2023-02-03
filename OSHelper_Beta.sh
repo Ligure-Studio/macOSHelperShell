@@ -266,6 +266,9 @@ function main {
 #===执行主函数===
 
 main
+echo '👍开源地址:https://github.com/Ligure-Studio/MacOSHelperShell'
+echo "\033[34m欢迎反馈问题或建议到 service@ligure.cn ,我们会持续跟进 \033[0m"
+
 sleep 1
 exit 0
 
