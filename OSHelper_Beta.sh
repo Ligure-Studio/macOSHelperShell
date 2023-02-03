@@ -93,7 +93,7 @@ function OSFunction {
         killall Dock
         killall Finder
         echo '✅已完成'
-    elif [ "$MainInputNumber" == 'n' ]
+    elif [ "$OSInputNumber" == 'n' ]
     then
     echo '👍开源地址:https://github.com/Ligure-Studio/MacOSHelperShell'
     echo "\033[34m欢迎反馈问题或建议到 service@ligure.cn ,我们会持续跟进 \033[0m"
@@ -124,7 +124,7 @@ function devTools {
         else
             installBrew
         fi
-    elif [ "$MainInputNumber" == 'n' ]
+    elif [ "$DevInputNumber" == 'n' ]
     then
         echo '👍开源地址:https://github.com/Ligure-Studio/MacOSHelperShell'
         echo "\033[34m欢迎反馈问题或建议到 service@ligure.cn ,我们会持续跟进 \033[0m"
