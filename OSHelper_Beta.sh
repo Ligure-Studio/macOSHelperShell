@@ -191,7 +191,12 @@ function hyperOSFunction {
 function verifyTools {
     echo '[1].md5校验'
     echo '[2].sha256校验'
-    echo '[3].比对实用工具'
+    echo '[3].sha512校验'
+    echo '[4].sha1校验'
+    echo '[5].crc32校验(需安装支持软件)'
+    echo '[6].比对实用工具(区分大小写)'
+    echo '[7].比对实用工具(不区分大小写)'
+    echo '[8].base64编码'
     echo '[n].退出'
     read verifyInputNumber #Verify部分输入参数
     if [ "$verifyInputNumber" == '1' ]
@@ -208,10 +213,66 @@ function verifyTools {
         echo '✅检验完成!'
     elif [ "$verifyInputNumber" == '3' ]
     then
+        echo '请将要校验的文件拖到终端窗口'
+        read sha512Path
+        shasum -a 512 $sha512Path
+        echo '✅检验完成!'
+    elif [ "$verifyInputNumber" == '4' ]
+    then
+        echo '请将要校验的文件拖到终端窗口'
+        read sha1Path
+        shasum -a 1 $sha1Path
+        echo '✅检验完成!'
+    elif [ "$verifyInputNumber" == '5' ]
+    then
+        if which cksfv >/dev/null; then
+            echo "✅你已安装cksfv,下面请拖入要校验的文件到终端窗口.😁"
+            read crc32Path
+            cksfv $crc32Path
+            echo '✅校验完成'
+        else
+            echo "❌看起来你没有安装cksfv。为了更好地实现相关功能,我们首先需要安装cksfv.在安装cksfv之前,我们需要确认您已经安装了Homebrew."
+            if which brew >/dev/null; then
+                echo "✅您安装了Homebrew.我们将会通过brew安装cksfv.😁"
+                echo "👍cksfv是MacOS上的一个小工具,可以用来查询硬盘数据,不会弄坏您的电脑。你是否要安装cksfv?(y/n)"
+                read answer
+                if [ $answer == "y" ] || [ $answer == "Y" ]; then
+                    brew install cksfv
+                    echo "✅看起来您应该成功安装了cksfv🎉.下面请拖入要校验的文件到终端窗口.😁"
+                    read crc32Path1
+                    cksfv $crc32Path1
+                else
+                    echo "❎您没有输入y,我们将不会为您安装cksfv,您的电脑没有遭到修改,感谢您的使用.😁"
+                fi
+            else
+                echo '❌您没有安装brew,是否安装Homebrew?(y/n)'
+                read yOrNot
+                if [ $yOrNot == "y" ] || [ $yOrNot == "Y" ]; then
+                    installBrew
+                else
+                    echo "❎将不会安装Homebrew和cksfv"
+                fi
+            fi
+        fi
+    elif [ "$verifyInputNumber" == '6' ]
+    then
         echo '请输入第一个值'
         read key111
         echo '请输入第二个值'
         read key222
+        if [ $key111 == $key222 ]; then
+            echo '✅比对通过,两者一致!'
+        else
+            echo '❌比对不通过,两者不一致!'
+        fi
+    elif [ "$verifyInputNumber" == '7' ]
+    then
+        echo '请输入第一个值'
+        read key111
+        echo '请输入第二个值'
+        read key222
+        key111=`echo $key111 | tr '[:upper:]' '[:lower:]'`
+        key222=`echo $key222 | tr '[:upper:]' '[:lower:]'`
         if [ $key111 == $key222 ]; then
             echo '✅比对通过,两者一致!'
         else
@@ -236,7 +297,7 @@ function main {
     echo '[1].一般系统功能'
     echo '[2].开发库一键安装'
     echo '[3].进阶系统功能'
-    echo '[4].校验专区' 
+    echo '[4].校验编码专区' 
     echo '[n].退出'
     read MainInputNumber
     if [ "$MainInputNumber" == '1' ]
