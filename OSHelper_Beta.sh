@@ -179,7 +179,7 @@ function hyperOSFunction {
         else
             echo "❌您已关闭SIP!"
         fi
-    elif [ "$MainInputNumber" == 'n' ]
+    elif [ "$hyperInputNumber" == 'n' ]
     then
          echo '👍开源地址:https://github.com/FANChenjia/MacOSHelperShell'
          echo "\033[34m欢迎反馈问题或建议到 mingshen.work@ligure.eu.org,我会持续跟进 \033[0m"
