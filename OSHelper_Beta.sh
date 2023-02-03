@@ -196,7 +196,6 @@ function verifyTools {
     echo '[5].crc32校验(需安装支持软件)'
     echo '[6].比对实用工具(区分大小写)'
     echo '[7].比对实用工具(不区分大小写)'
-    echo '[8].base64编码'
     echo '[n].退出'
     read verifyInputNumber #Verify部分输入参数
     if [ "$verifyInputNumber" == '1' ]
@@ -297,7 +296,7 @@ function main {
     echo '[1].一般系统功能'
     echo '[2].开发库一键安装'
     echo '[3].进阶系统功能'
-    echo '[4].校验编码专区' 
+    echo '[4].校验专区' 
     echo '[n].退出'
     read MainInputNumber
     if [ "$MainInputNumber" == '1' ]
