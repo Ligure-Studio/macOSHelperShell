@@ -2,7 +2,7 @@ echo '====欢迎使用MacOS Helper Shell===='
 echo '😁由Ligure Studio团队维护,基于 MIT LICENSE 开源。'
 echo '👍开源地址:https://github.com/Ligure-Studio/MacOSHelperShell'
 echo '❗️为保证功能顺利运行,请在出现Password提示时输入您电脑的开机密码(密码不会在界面上显示)'
-echo  "\033[31m 0.1.1-beta \033[0m"
+echo  "\033[31m 0.1.1-beta2 \033[0m"
 echo '------------------------------'
 sleep 1
 
