@@ -86,7 +86,7 @@ function OSFunction {
         else
             echo '❎将不会重置Dock'
         fi
-    elif [ "$OSnputNumber" == '5' ]
+    elif [ "$OSInputNumber" == '5' ]
     then
         sudo find /private/var/folders/ \( -name com.apple.dock.iconcache -or -name com.apple.iconservices \) -exec rm -rfv {} \;
         sudo rm -rf /Library/Caches/com.apple.iconservices.store;
@@ -171,10 +171,14 @@ function hyperOSFunction {
                 fi
             fi
         fi
-     elif [ "$HyperInputNumber" == '2' ]
+     elif [ "$hyperInputNumber" == '2' ]
      then
-         csrutil status
-         echo '如果输出为enabled则代表您已开启sip,disabled则代表已关闭.'
+        status=$(csrutil status)
+        if [[ $status == *"enabled"* ]]; then
+            echo "✅您已打开SIP!"
+        else
+            echo "❌您已关闭SIP!"
+        fi
     elif [ "$MainInputNumber" == 'n' ]
     then
          echo '👍开源地址:https://github.com/FANChenjia/MacOSHelperShell'
