@@ -54,22 +54,27 @@ function installBrew {
 
 function OSFunction {
     echo '[1].开启"全部来源"'
-    echo '[2].清楚软件隔离属性(解决"已损坏"问题)'
-    echo '[3].将Dock栏恢复出厂设置'
-    echo '[4].刷新缩略图(适用于缩略图被抢)'
+    echo '[2].关闭"全部来源"'
+    echo '[3].清除软件隔离属性(解决"已损坏"问题)'
+    echo '[4].将Dock栏恢复出厂设置'
+    echo '[5].刷新缩略图(适用于缩略图被抢)'
     echo '[n].退出'
     read OSInputNumber #OS部分输入参数
-       if [ "$OSInputNumber" == '1' ]
+    if [ "$OSInputNumber" == '1' ]
     then
         sudo spctl --master-disable
         echo '✅已完成'
     elif [ "$OSInputNumber" == '2' ]
     then
+       sudo spctl --master-enable
+        echo '✅已完成'
+    elif [ "$OSInputNumber" == '3' ]
+    then
         echo '😀请输入软件路径(可将软件拖进终端)👉'
         read appPath
         sudo xattr -r -d com.apple.quarantine $appPath
         echo '✅已完成'
-    elif [ "$OSInputNumber" == '3' ]
+    elif [ "$OSInputNumber" == '4' ]
     then
         echo '⚠️ 你真的确认要操作吗?'
         echo '⚠️ 操作后Dock将重置为出厂设置且无法恢复!'
@@ -81,7 +86,7 @@ function OSFunction {
         else
             echo '❎将不会重置Dock'
         fi
-    elif [ "$OSnputNumber" == '4' ]
+    elif [ "$OSnputNumber" == '5' ]
     then
         sudo find /private/var/folders/ \( -name com.apple.dock.iconcache -or -name com.apple.iconservices \) -exec rm -rfv {} \;
         sudo rm -rf /Library/Caches/com.apple.iconservices.store;
@@ -168,20 +173,55 @@ function hyperOSFunction {
         fi
      elif [ "$HyperInputNumber" == '2' ]
      then
-         status=$(csrutil status)
-         if [[ $status == *"enabled"* ]]; then
-             echo "✅您已打开SIP!"
-         else
-             echo "❌您已关闭SIP!"
-         fi
+         csrutil status
+         echo '如果输出为enabled则代表您已开启sip,disabled则代表已关闭.'
     elif [ "$MainInputNumber" == 'n' ]
     then
-    echo '👍开源地址:https://github.com/FANChenjia/MacOSHelperShell'
-    echo "\033[34m欢迎反馈问题或建议到 mingshen.work@ligure.eu.org,我会持续跟进 \033[0m"
-    sleep 1
-    exit 0
+         echo '👍开源地址:https://github.com/FANChenjia/MacOSHelperShell'
+         echo "\033[34m欢迎反馈问题或建议到 mingshen.work@ligure.eu.org,我会持续跟进 \033[0m"
+         sleep 1
+         exit 0
     fi
 }
+
+function verifyTools {
+    echo '[1].md5校验'
+    echo '[2].sha256校验'
+    echo '[3].比对实用工具'
+    echo '[n].退出'
+    read verifyInputNumber #Verify部分输入参数
+    if [ "$verifyInputNumber" == '1' ]
+    then
+        echo '请将要校验的文件拖到终端窗口'
+        read md5Path
+        md5 $md5Path
+        echo '✅校验完成!'
+    elif [ "$verifyInputNumber" == '2' ]
+    then
+        echo '请将要校验的文件拖到终端窗口'
+        read sha256Path
+        shasum -a 256 $sha256Path
+        echo '✅检验完成!'
+    elif [ "$verifyInputNumber" == '3' ]
+    then
+        echo '请输入第一个值'
+        read key111
+        echo '请输入第二个值'
+        read key222
+        if [ $key111 == $key222 ]; then
+            echo '✅比对通过,两者一致!'
+        else
+            echo '❌比对不通过,两者不一致!'
+        fi
+    elif [ "$verifyInputNumber" == 'n' ]
+    then
+         echo '👍开源地址:https://github.com/FANChenjia/MacOSHelperShell'
+         echo "\033[34m欢迎反馈问题或建议到 mingshen.work@ligure.eu.org,我会持续跟进 \033[0m"
+         sleep 1
+         exit 0
+    fi
+}
+
 
 #===高级系统功能函数结束===
 
@@ -192,6 +232,7 @@ function main {
     echo '[1].一般系统功能'
     echo '[2].开发库一键安装'
     echo '[3].进阶系统功能'
+    echo '[4].校验专区' 
     echo '[n].退出'
     read MainInputNumber
     if [ "$MainInputNumber" == '1' ]
@@ -203,6 +244,9 @@ function main {
     elif [ "$MainInputNumber" == '3' ]
     then
     hyperOSFunction
+    elif [ "$MainInputNumber" == '4' ]
+    then
+    verifyTools
     elif [ "$MainInputNumber" == 'n' ]
     then
     echo '👍开源地址:https://github.com/FANChenjia/MacOSHelperShell'
