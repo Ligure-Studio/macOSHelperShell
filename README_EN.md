@@ -33,7 +33,8 @@ This script is jointly developed and maintained by [MingS](https://github.com/FA
 | 6      | Install Homebrew                                             |        |
 | 7      | View disk read and write data (support software required)    |        |
 | 8      | Check SIP status                                             |        |
-| 9      | MD5 checksum                                                 |        |
+| 9      | File verification                                            |        |
+| 10     | Fix Local Anisette plug-in of Sideloadly! is not available on macOS 13.1 or above |        |
 |        | Adding more new functions...                                 |        |
 
 

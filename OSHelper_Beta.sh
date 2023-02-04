@@ -2,7 +2,7 @@ echo '====欢迎使用MacOS Helper Shell===='
 echo '😁由Ligure Studio团队维护,基于 MIT LICENSE 开源。'
 echo '👍开源地址:https://github.com/Ligure-Studio/MacOSHelperShell'
 echo '❗️为保证功能顺利运行,请在出现Password提示时输入您电脑的开机密码(密码不会在界面上显示)'
-echo  "\033[31m 0.1.1-beta2 \033[0m"
+echo  "\033[31m 0.1.1-beta3(classified) \033[0m"
 echo '------------------------------'
 sleep 1
 
@@ -41,7 +41,7 @@ function installBrew {
             xcode-select --install
            echo '👌🏻理论上来讲你应该已经安装成功了,或者你已经安装过了(报error: command line tools are already installed错误).'
            echo '🤔如果报其他错(error),那多半是网络问题,请访问 https://developer.apple.com/download/all/ 登录您的Apple ID,然后手动下载.😁'
-           echo '😀请再次输入6尝试安装Homebrew.'
+           echo '😀请再次尝试安装Homebrew.'
         else
            echo '❎将不会安装Xcode CLT和Homebrew'
         fi
@@ -233,7 +233,7 @@ function verifyTools {
             echo "❌看起来你没有安装cksfv。为了更好地实现相关功能,我们首先需要安装cksfv.在安装cksfv之前,我们需要确认您已经安装了Homebrew."
             if which brew >/dev/null; then
                 echo "✅您安装了Homebrew.我们将会通过brew安装cksfv.😁"
-                echo "👍cksfv是MacOS上的一个小工具,可以用来查询硬盘数据,不会弄坏您的电脑。你是否要安装cksfv?(y/n)"
+                echo "👍cksfv是MacOS上的一个小工具,可以用来校验crc32,不会弄坏您的电脑。你是否要安装cksfv?(y/n)"
                 read answer
                 if [ $answer == "y" ] || [ $answer == "Y" ]; then
                     brew install cksfv
@@ -289,6 +289,53 @@ function verifyTools {
 
 #===高级系统功能函数结束===
 
+
+#===软件修复专区函数===
+
+function fixTools {
+    echo '[1].修复Sideloadly!的Local Anisette在macOS 13.1以上无法使用的问题'
+    echo '[n].退出'
+    read fixInputNumber #fix部分输入参数
+    if [ "$fixInputNumber" == '1' ]
+    then
+        if xcode-select -p &> /dev/null; then
+            echo "✅你已经安装了Xcode CLT.接下来我们将为您修复.😁"
+            for loop in 13.1 13.2 13.3 13.4 13.5 13.6 13.7 13.8 13.9
+            do
+            Arraykey="Supported${loop}PluginCompatibilityUUIDs"
+            echo $Arraykey
+            sudo /usr/libexec/PlistBuddy -c "Add :$Arraykey array" /Library/Mail/Bundles/SideloadlyPlugin.mailbundle/Contents/Info.plist
+            sudo /usr/libexec/PlistBuddy -c "Add :$Arraykey: string 25288CEF-7D9B-49A8-BE6B-E41DA6277CF3" /Library/Mail/Bundles/SideloadlyPlugin.mailbundle/Contents/Info.plist
+            sudo /usr/libexec/PlistBuddy -c "Add :$Arraykey: string 6FF8B077-81FA-45A4-BD57-17CDE79F13A5" /Library/Mail/Bundles/SideloadlyPlugin.mailbundle/Contents/Info.plist
+            sudo /usr/libexec/PlistBuddy -c "Add :$Arraykey: string A4B49485-0377-4FAB-8D8E-E3B8018CFC21" /Library/Mail/Bundles/SideloadlyPlugin.mailbundle/Contents/Info.plist
+            sudo /usr/libexec/PlistBuddy -c "Add :$Arraykey: string 890E3F5B-9490-4828-8F3F-B6561E513FCC" /Library/Mail/Bundles/SideloadlyPlugin.mailbundle/Contents/Info.plist
+            done
+            sudo codesign -f -s - /Library/Mail/Bundles/SideloadlyPlugin.mailbundle
+        else
+            echo "❌您没有安装Xcode CLT,是否安装Xcode CLT?(y/n)"
+            read yOrNot
+            if [ $yOrNot == "y" ] || [ $yOrNot == "Y" ]; then
+                echo '⏩开始安装Xcode CLT'
+                xcode-select --install
+                echo '👌🏻理论上来讲你应该已经安装成功了,或者你已经安装过了(报error: command line tools are already installed错误).'
+                echo '🤔如果报其他错(error),那多半是网络问题,请访问 https://developer.apple.com/download/all/ 登录您的Apple ID,然后手动下载.😁'
+                echo '😀请再次尝试修复.'
+            else
+                echo '❎将不会安装Xcode CLT和修复'
+            fi
+        fi
+    elif [ "$fixInputNumber" == 'n' ]
+    then
+        echo '👍开源地址:https://github.com/Ligure-Studio/MacOSHelperShell'
+        echo "\033[34m欢迎反馈问题或建议到 service@ligure.cn ,我们会持续跟进 \033[0m"
+         sleep 1
+         exit 0
+    fi
+}
+
+#===软件修复专区函数结束===
+
+
 #===主函数===
 
 function main {
@@ -296,7 +343,8 @@ function main {
     echo '[1].一般系统功能'
     echo '[2].开发库一键安装'
     echo '[3].进阶系统功能'
-    echo '[4].校验专区' 
+    echo '[4].校验专区'
+    echo '[5].软件修复专区'
     echo '[n].退出'
     read MainInputNumber
     if [ "$MainInputNumber" == '1' ]
@@ -311,6 +359,9 @@ function main {
     elif [ "$MainInputNumber" == '4' ]
     then
     verifyTools
+    elif [ "$MainInputNumber" == '5' ]
+    then
+    fixTools
     elif [ "$MainInputNumber" == 'n' ]
     then
         echo '👍开源地址:https://github.com/Ligure-Studio/MacOSHelperShell'
