@@ -45,17 +45,16 @@ This script is jointly developed and maintained by [MingS](https://github.com/FA
 Copy and paste the following command to the terminal, and then press "return":
 
 ```shell
-curl -L https://github.com/FANChenjia/MacOSHelperShell/blob/main/OSHelper.sh -O && sh OSHelper.sh
+curl -L https://github.com/Ligure-Studio/MacOSHelperShell/blob/main/OSHelper_Stable.sh -O && sh OSHelper_Stable.sh
 ```
 
 If you are a China mainland user and have difficulty using the above command due to network problems, please use the following command:
 
 ```shell
-curl -L https://ghproxy.com/https://raw.githubusercontent.com/FANChenjia/MacOSHelperShell/main/OSHelper.sh -O && sh OSHelper.sh
+curl -L https://ghproxy.com/https://raw.githubusercontent.com/Ligure-Studio/MacOSHelperShell/main/OSHelper_Stable.sh -O && sh OSHelper_Stable.sh
 ```
 
 ### Download the release:
 
-[Click me to download](https://github.com/FANChenjia/MacOSHelperShell/releases)
+[Click me to download](https://github.com/Ligure-Studio/MacOSHelperShell/releases)
 
-Waiting for jerry perfect this readme Eng version...
