@@ -54,6 +54,7 @@ function main {
     echo '[6].安装Homebrew(耗时可能有点长,请耐心等待,已经装过就不用装了)'
     echo '[7].查看硬盘读写数据(需安装支持软件)'
     echo '[8].查询SIP开关状态'
+    echo '[9].MD5验证'
     echo '[n].退出'
     read inputNumber
     if [ "$inputNumber" == '1' ]
