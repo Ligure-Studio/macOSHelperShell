@@ -1,13 +1,13 @@
-<h4 align="right"><strong>English</strong> | <a href="https://github.com/FANChenjia/MacOSHelperShell/blob/main/README.md">中文</a></h4>
+<h4 align="right"><strong>English</strong> | <a href="https://github.com/Ligure-Studio/MacOSHelperShell/blob/main/README.md">中文</a></h4>
 <p align="center">
-    <img src="./assets/logo1.jpg" width=280/>
+    <img src="./assets/logo.jpg" width=280/>
 </p>
 <h1 align="center">MacOSHelperShell</h1>
 <div align="center">   
-  <img src="https://img.shields.io/github/stars/FANChenjia/MacOSHelperShell?label=Stars" alt="GitHub Stars"/>
-  <img src="https://img.shields.io/github/forks/FANChenjia/MacOSHelperShell?label=Forks" alt="GitHub Forks"/> 
-  <a href="https://github.com/FANChenjia/MacOSHelperShell/releases" target="_blank">
-    <img src="https://img.shields.io/github/v/release/FANChenjia/MacOSHelperShell?display_name=tag" alt="GitHub Release"/></a>
+  <img src="https://img.shields.io/github/stars/Ligure-Studio/MacOSHelperShell?label=Stars" alt="GitHub Stars"/>
+  <img src="https://img.shields.io/github/forks/Ligure-Studio/MacOSHelperShell?label=Forks" alt="GitHub Forks"/> 
+  <a href="https://github.com/Ligure-Studio/MacOSHelperShell/releases" target="_blank">
+    <img src="https://img.shields.io/github/v/release/Ligure-Studio/MacOSHelperShell?display_name=tag" alt="GitHub Release"/></a>
 
 
 
@@ -33,7 +33,8 @@ This script is jointly developed and maintained by [MingS](https://github.com/FA
 | 6      | Install Homebrew                                             |        |
 | 7      | View disk read and write data (support software required)    |        |
 | 8      | Check SIP status                                             |        |
-| 9      | MD5 checksum                                                 |        |
+| 9      | File verification                                            |        |
+| 10     | Fix Local Anisette plug-in of Sideloadly! is not available on macOS 13.1 or above |        |
 |        | Adding more new functions...                                 |        |
 
 
@@ -45,17 +46,16 @@ This script is jointly developed and maintained by [MingS](https://github.com/FA
 Copy and paste the following command to the terminal, and then press "return":
 
 ```shell
-curl -L https://github.com/FANChenjia/MacOSHelperShell/blob/main/OSHelper.sh -O && sh OSHelper.sh
+curl -L https://github.com/Ligure-Studio/MacOSHelperShell/blob/main/OSHelper_Stable.sh -O && sh OSHelper_Stable.sh
 ```
 
 If you are a China mainland user and have difficulty using the above command due to network problems, please use the following command:
 
 ```shell
-curl -L https://ghproxy.com/https://raw.githubusercontent.com/FANChenjia/MacOSHelperShell/main/OSHelper.sh -O && sh OSHelper.sh
+curl -L https://ghproxy.com/https://raw.githubusercontent.com/Ligure-Studio/MacOSHelperShell/main/OSHelper_Stable.sh -O && sh OSHelper_Stable.sh
 ```
 
 ### Download the release:
 
-[Click me to download](https://github.com/FANChenjia/MacOSHelperShell/releases)
+[Click me to download](https://github.com/Ligure-Studio/MacOSHelperShell/releases)
 
-Waiting for jerry perfect this readme Eng version...
