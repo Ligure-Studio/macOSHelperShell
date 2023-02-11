@@ -56,8 +56,9 @@ function OSFunction {
     echo '[1].开启"全部来源"'
     echo '[2].关闭"全部来源"'
     echo '[3].清除软件隔离属性(解决"已损坏"问题)'
-    echo '[4].将Dock栏恢复出厂设置'
-    echo '[5].刷新缩略图(适用于缩略图被抢)'
+    echo '[4].开启/关闭通过刷指纹验证sudo'
+    echo '[5].将Dock栏恢复出厂设置'
+    echo '[6].刷新缩略图(适用于缩略图被抢)'
     echo '[n].退出'
     read OSInputNumber #OS部分输入参数
     if [ "$OSInputNumber" == '1' ]
@@ -76,6 +77,24 @@ function OSFunction {
         echo '✅已完成'
     elif [ "$OSInputNumber" == '4' ]
     then
+        echo '😀正在检测是否已经开启本功能……'
+        status=$(sudo cat /etc/pam.d/sudo)
+        if [[ $status == *"pam_tid.so"* ]]; then
+            echo "🤔似乎已开启该功能, 是否需要关闭?(y/n)"
+            read yOrNot
+            if [ $yOrNot == "y" ] || [ $yOrNot == "Y" ]; then
+                sed -i '' "/pam_tid.so/d" /etc/pam.d/sudo
+                echo '✅已关闭'
+            else
+                echo '❎将不会关闭'
+            fi
+        else
+            echo "👌没有开启该功能, 正在开启……"
+            sudo sed '1i auth       sufficient     pam_tid.so' /etc/pam.d/sudo
+            echo "✅已打开"
+        fi
+    elif [ "$OSInputNumber" == '5' ]
+    then
         echo '⚠️ 你真的确认要操作吗?'
         echo '⚠️ 操作后Dock将重置为出厂设置且无法恢复!'
         echo '🤔是否仍然执行?(y/n)'
@@ -86,7 +105,7 @@ function OSFunction {
         else
             echo '❎将不会重置Dock'
         fi
-    elif [ "$OSInputNumber" == '5' ]
+    elif [ "$OSInputNumber" == '6' ]
     then
         sudo find /private/var/folders/ \( -name com.apple.dock.iconcache -or -name com.apple.iconservices \) -exec rm -rfv {} \;
         sudo rm -rf /Library/Caches/com.apple.iconservices.store;
@@ -95,10 +114,12 @@ function OSFunction {
         echo '✅已完成'
     elif [ "$OSInputNumber" == 'n' ]
     then
-    echo '👍开源地址:https://github.com/Ligure-Studio/MacOSHelperShell'
-    echo "\033[34m欢迎反馈问题或建议到 service@ligure.cn ,我们会持续跟进 \033[0m"
-    sleep 1
-    exit 0
+        echo '👍开源地址:https://github.com/Ligure-Studio/MacOSHelperShell'
+        echo "\033[34m欢迎反馈问题或建议到 service@ligure.cn ,我们会持续跟进 \033[0m"
+        sleep 1
+        exit 0
+    else
+        echo '❌输入错误!'
     fi
 }
 
@@ -128,8 +149,10 @@ function devTools {
     then
         echo '👍开源地址:https://github.com/Ligure-Studio/MacOSHelperShell'
         echo "\033[34m欢迎反馈问题或建议到 service@ligure.cn ,我们会持续跟进 \033[0m"
-    sleep 1
-    exit 0
+        sleep 1
+        exit 0
+    else
+        echo '❌输入错误!'
     fi
 }
 
@@ -183,8 +206,10 @@ function hyperOSFunction {
     then
         echo '👍开源地址:https://github.com/Ligure-Studio/MacOSHelperShell'
         echo "\033[34m欢迎反馈问题或建议到 service@ligure.cn ,我们会持续跟进 \033[0m"
-         sleep 1
-         exit 0
+        sleep 1
+        exit 0
+    else
+        echo '❌输入错误!'
     fi
 }
 
@@ -281,8 +306,10 @@ function verifyTools {
     then
         echo '👍开源地址:https://github.com/Ligure-Studio/MacOSHelperShell'
         echo "\033[34m欢迎反馈问题或建议到 service@ligure.cn ,我们会持续跟进 \033[0m"
-         sleep 1
-         exit 0
+        sleep 1
+        exit 0
+    else
+        echo '❌输入错误!'
     fi
 }
 
@@ -328,8 +355,10 @@ function fixTools {
     then
         echo '👍开源地址:https://github.com/Ligure-Studio/MacOSHelperShell'
         echo "\033[34m欢迎反馈问题或建议到 service@ligure.cn ,我们会持续跟进 \033[0m"
-         sleep 1
-         exit 0
+        sleep 1
+        exit 0
+    else
+        echo '❌输入错误!'
     fi
 }
 
@@ -366,8 +395,12 @@ function main {
     then
         echo '👍开源地址:https://github.com/Ligure-Studio/MacOSHelperShell'
         echo "\033[34m欢迎反馈问题或建议到 service@ligure.cn ,我们会持续跟进 \033[0m"
-    sleep 1
+        sleep 1
+        exit 0
+    else
+        echo '❌输入错误!'
     fi
+    main
 }
 
 #===主函数===
@@ -377,11 +410,5 @@ function main {
 #===执行主函数===
 
 main
-sleep 1
-echo '👍开源地址:https://github.com/Ligure-Studio/MacOSHelperShell'
-echo "\033[34m欢迎反馈问题或建议到 service@ligure.cn ,我们会持续跟进 \033[0m"
-
-sleep 1
-exit 0
 
 #===执行主函数===

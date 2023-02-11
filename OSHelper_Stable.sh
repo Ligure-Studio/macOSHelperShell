@@ -49,13 +49,14 @@ function main {
     echo '[1].开启"全部来源"'
     echo '[2].移除隔离属性(解决"已损坏问题")'
     echo '[3].将Dock重置为默认'
-    echo '[4].清除缩略图缓存(适用于缩略图被抢)'
-    echo '[5].安装Xcode CLT(因国内网络问题,可能等待时间较长或安装失败)'
-    echo '[6].安装Homebrew(耗时可能有点长,请耐心等待,已经装过就不用装了)'
-    echo '[7].查看硬盘读写数据(需安装支持软件)'
-    echo '[8].查询SIP开关状态'
-    echo '[9].文件校验'
-    echo '[10].修复Sideloadly!的Local Anisette在macOS 13.1以上无法使用的问题'
+    echo '[4].开启/关闭通过刷指纹验证sudo'
+    echo '[5].清除缩略图缓存(适用于缩略图被抢)'
+    echo '[6].安装Xcode CLT(因国内网络问题,可能等待时间较长或安装失败)'
+    echo '[7].安装Homebrew(耗时可能有点长,请耐心等待,已经装过就不用装了)'
+    echo '[8].查看硬盘读写数据(需安装支持软件)'
+    echo '[9].查询SIP开关状态'
+    echo '[10].文件校验'
+    echo '[11].修复Sideloadly!的Local Anisette在macOS 13.1以上无法使用的问题'
     echo '[n].退出'
     read inputNumber
     if [ "$inputNumber" == '1' ]
@@ -82,24 +83,42 @@ function main {
         fi
     elif [ "$inputNumber" == '4' ]
     then
+        echo '😀正在检测是否已经开启本功能……'
+        status=$(sudo cat /etc/pam.d/sudo)
+        if [[ $status == *"pam_tid.so"* ]]; then
+            echo "🤔似乎已开启该功能, 是否需要关闭?(y/n)"
+            read yOrNot
+            if [ $yOrNot == "y" ] || [ $yOrNot == "Y" ]; then
+                sed -i '' "/pam_tid.so/d" /etc/pam.d/sudo
+                echo '✅已关闭'
+            else
+                echo '❎将不会关闭'
+            fi
+        else
+            echo "👌没有开启该功能, 正在开启……"
+            sudo sed '1i auth       sufficient     pam_tid.so' /etc/pam.d/sudo
+            echo "✅已打开"
+        fi
+    elif [ "$inputNumber" == '5' ]
+    then
         sudo find /private/var/folders/ \( -name com.apple.dock.iconcache -or -name com.apple.iconservices \) -exec rm -rfv {} \;
         sudo rm -rf /Library/Caches/com.apple.iconservices.store;
         killall Dock
         killall Finder
         echo '✅已完成'
-    elif [ "$inputNumber" == '5' ]
+    elif [ "$inputNumber" == '6' ]
     then
         xcode-select --install
         echo '👌🏻理论上来讲你应该已经安装成功了,或者你已经安装过了(报error: command line tools are already installed错误).'
         echo '🤔如果报其他错(error),那多半是网络问题,请访问 https://developer.apple.com/download/all/ 登录您的Apple ID,然后手动下载.😁'
-    elif [ "$inputNumber" == '6' ]
+    elif [ "$inputNumber" == '7' ]
     then
         if which brew >/dev/null; then
             echo '✅你已经安装过了,无需重复安装!'
         else
             installBrew
         fi
-    elif [ "$inputNumber" == '7' ]
+    elif [ "$inputNumber" == '8' ]
     then
         if which smartctl >/dev/null; then
             echo "✅你已安装smartmontools,下面为你查询硬盘数据。😁"
@@ -127,7 +146,7 @@ function main {
                 fi
             fi
         fi
-    elif [ "$inputNumber" == '8' ]
+    elif [ "$inputNumber" == '9' ]
     then
         status=$(csrutil status)
         if [[ $status == *"enabled"* ]]; then
@@ -135,7 +154,7 @@ function main {
         else
             echo "❌您已关闭SIP!"
         fi
-    elif [ "$inputNumber" == '9' ]
+    elif [ "$inputNumber" == '10' ]
     then
         echo '[1].md5校验'
         echo '[2].sha256校验'
@@ -226,7 +245,7 @@ function main {
                 echo '❌比对不通过,两者不一致!'
             fi
         fi
-    elif [ "$inputNumber" == '10' ]
+    elif [ "$inputNumber" == '11' ]
     then
         if xcode-select -p &> /dev/null; then
             echo "✅你已经安装了Xcode CLT.接下来我们将为您修复.😁"

@@ -28,13 +28,14 @@ This script is jointly developed and maintained by [MingS](https://github.com/FA
 | 1      | Disable Gatekeeper                                           |        |
 | 2      | Remove the quarantine property (resolve the "***.app is damaged...") |        |
 | 3      | Reset the Dock to default                                    |        |
-| 4      | Clear thumbnail cache                                        |        |
-| 5      | Install Xcode CLT                                            |        |
-| 6      | Install Homebrew                                             |        |
-| 7      | View disk read and write data (support software required)    |        |
-| 8      | Check SIP status                                             |        |
-| 9      | File verification                                            |        |
-| 10     | Fix Local Anisette plug-in of Sideloadly! is not available on macOS 13.1 or above |        |
+| 4      | Enable/disable sudo authentication via fingerprint           |        |
+| 5      | Clear thumbnail cache                                        |        |
+| 6      | Install Xcode CLT                                            |        |
+| 7      | Install Homebrew                                             |        |
+| 8      | View disk read and write data (support software required)    |        |
+| 9      | Check SIP status                                             |        |
+| 10     | File verification                                            |        |
+| 11     | Fix Local Anisette plug-in of Sideloadly! is not available on macOS 13.1 or above |        |
 |        | Adding more new functions...                                 |        |
 
 
