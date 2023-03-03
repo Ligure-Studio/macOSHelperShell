@@ -1,6 +1,6 @@
-echo '====欢迎使用MacOS Helper Shell===='
+echo '====欢迎使用macOS Helper Shell===='
 echo '😁由明燊、小叶、Jerry共同开发和维护,基于MIT协议开源'
-echo '👍开源地址:https://github.com/Ligure-Studio/MacOSHelperShell'
+echo '👍开源地址:https://github.com/Ligure-Studio/macOSHelperShell'
 echo '🤔如果遇到“Password”提示,请放心输入你电脑开机密码.脚本已经开源,不会上传数据.'
 echo  "\033[31m 0.1.1-beta3(non-classified) \033[0m"
 echo '------------------------------'
@@ -127,7 +127,7 @@ function main {
             echo "❌看起来你没有安装smartmontools。为了更好地实现相关功能,我们首先需要安装smartmontools。在安装smartmontools之前,我们需要确认您已经安装了Homebrew。接下来我们会自动检测。"
             if which brew >/dev/null; then
                 echo "✅您安装了Homebrew。我们将会通过brew安装smartmontools。😁"
-                echo "👍smartmotools是MacOS上的一个小工具,可以用来查询硬盘数据,不会弄坏您的电脑。你是否要安装smartmontools?(y/n)"
+                echo "👍smartmotools是macOS上的一个小工具,可以用来查询硬盘数据,不会弄坏您的电脑。你是否要安装smartmontools?(y/n)"
                 read answer
                 if [ $answer == "y" ] || [ $answer == "Y" ]; then
                     brew install smartmontools
@@ -200,7 +200,7 @@ function main {
                 echo "❌看起来你没有安装cksfv。为了更好地实现相关功能,我们首先需要安装cksfv.在安装cksfv之前,我们需要确认您已经安装了Homebrew."
                 if which brew >/dev/null; then
                     echo "✅您安装了Homebrew.我们将会通过brew安装cksfv.😁"
-                    echo "👍cksfv是MacOS上的一个小工具,可以用来校验crc32,不会弄坏您的电脑。你是否要安装cksfv?(y/n)"
+                    echo "👍cksfv是macOS上的一个小工具,可以用来校验crc32,不会弄坏您的电脑。你是否要安装cksfv?(y/n)"
                     read answer
                     if [ $answer == "y" ] || [ $answer == "Y" ]; then
                         brew install cksfv
@@ -275,7 +275,7 @@ function main {
         fi
     elif [ "$inputNumber" == 'n' ]
     then
-        echo '👍开源地址:https://github.com/Ligure-Studio/MacOSHelperShell'
+        echo '👍开源地址:https://github.com/Ligure-Studio/macOSHelperShell'
         echo "\033[34m欢迎反馈问题或建议到 service@ligure.cn ,我们会持续跟进 \033[0m"
         sleep 1
         exit 0
