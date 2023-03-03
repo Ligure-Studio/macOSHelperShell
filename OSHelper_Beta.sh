@@ -2,7 +2,7 @@ echo '====欢迎使用MacOS Helper Shell===='
 echo '😁由Ligure Studio团队维护,基于 MIT LICENSE 开源。'
 echo '👍开源地址:https://github.com/Ligure-Studio/MacOSHelperShell'
 echo '❗️为保证功能顺利运行,请在出现Password提示时输入您电脑的开机密码(密码不会在界面上显示)'
-echo  "\033[31m 0.1.1-beta3(classified) \033[0m"
+echo  "\033[31m 0.1.1-beta4(classified-unstable) \033[0m"
 echo '------------------------------'
 sleep 1
 
@@ -59,6 +59,8 @@ function OSFunction {
     echo '[4].开启/关闭通过刷指纹验证sudo'
     echo '[5].将Dock栏恢复出厂设置'
     echo '[6].刷新缩略图(适用于缩略图被抢)'
+    echo '[7].下载MacOS'
+    echo '[8].制作MacOS可引导安装盘（没写完）'
     echo '[n].退出'
     read OSInputNumber #OS部分输入参数
     if [ "$OSInputNumber" == '1' ]
@@ -112,6 +114,43 @@ function OSFunction {
         killall Dock
         killall Finder
         echo '✅已完成'
+    elif [ "$OSInputNumber" == '7' ]
+    then
+        echo '选择系统版本后将会打开App Store，您可自行点击“获取”进行下载。'
+        echo '请选择你要下载的版本（过于老旧的版本此处不提供）：'
+        sleep 1
+        echo '[1].Ventura 13'
+        echo '[2].Monterey 12'
+        echo '[3].Big Sur 11'
+        echo '[4].Catalina 10.15'
+        echo '[5].Mojave 10.14'
+        echo '[6].High Sierra 10.13'
+        echo '[n].退出'
+        read OSVerNumber
+        if [ "$OSVerNumber" == '1' ];then
+            open 'macappstores://apps.apple.com/app/macos-ventura/id1638787999'
+        elif [ "$OSVerNumber" == '2' ];then
+            open 'macappstores://apps.apple.com/app/macos-monterey/id1576738294'
+        elif [ "$OSVerNumber" == '3' ];then
+            open 'macappstores://apps.apple.com/app/macos-big-sur/id1526878132'
+        elif [ "$OSVerNumber" == '4' ];then
+            open 'macappstores://apps.apple.com/app/macos-catalina/id1466841314'
+        elif [ "$OSVerNumber" == '5' ];then
+            open 'macappstores://apps.apple.com/app/macos-mojave/id1398502828'
+        elif [ "$OSVerNumber" == '6' ];then
+            open 'macappstores://apps.apple.com/app/macos-high-sierra/id1246284741'
+        elif [ "$OSVerNumber" == 'n' ];then
+            echo '👍开源地址:https://github.com/Ligure-Studio/MacOSHelperShell'
+            echo "\033[34m欢迎反馈问题或建议到 service@ligure.cn ,我们会持续跟进 \033[0m"
+            sleep 1
+            exit 0
+        else
+            echo '❌输入错误!'
+        fi
+    elif [ "$OSInputNumber" == '8' ];then
+        echo '⚠️ 使用此功能需要先下载相应版本的MacOS，如果您没下载，请重进脚本，使用“一般系统功能”→“[7].下载MacOS”功能进行下载。'
+        echo '⚠️ 您需要准备一个至少14GB的U盘，且一旦开始制作，您U盘里的所有数据就会全部清空，请慎重决定！'
+        echo '没搞完，睡觉了😴'
     elif [ "$OSInputNumber" == 'n' ]
     then
         echo '👍开源地址:https://github.com/Ligure-Studio/MacOSHelperShell'
