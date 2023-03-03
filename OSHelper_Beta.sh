@@ -1,6 +1,6 @@
-echo '====欢迎使用MacOS Helper Shell===='
+echo '====欢迎使用macOS Helper Shell===='
 echo '😁由Ligure Studio团队维护,基于 MIT LICENSE 开源。'
-echo '👍开源地址:https://github.com/Ligure-Studio/MacOSHelperShell'
+echo '👍开源地址:https://github.com/Ligure-Studio/macOSHelperShell'
 echo '❗️为保证功能顺利运行,请在出现Password提示时输入您电脑的开机密码(密码不会在界面上显示)'
 echo  "\033[31m 0.1.1-beta4(classified-unstable) \033[0m"
 echo '------------------------------'
@@ -59,8 +59,8 @@ function OSFunction {
     echo '[4].开启/关闭通过刷指纹验证sudo'
     echo '[5].将Dock栏恢复出厂设置'
     echo '[6].刷新缩略图(适用于缩略图被抢)'
-    echo '[7].下载MacOS'
-    echo '[8].制作MacOS可引导安装盘（没写完）'
+    echo '[7].下载macOS'
+    echo '[8].制作macOS可引导安装盘（没写完）'
     echo '[n].退出'
     read OSInputNumber #OS部分输入参数
     if [ "$OSInputNumber" == '1' ]
@@ -129,34 +129,34 @@ function OSFunction {
         read OSVerNumber
         if [ "$OSVerNumber" == '1' ];then
             open 'macappstores://apps.apple.com/app/macos-ventura/id1638787999'
+            OSFunction
         elif [ "$OSVerNumber" == '2' ];then
             open 'macappstores://apps.apple.com/app/macos-monterey/id1576738294'
+            OSFunction
         elif [ "$OSVerNumber" == '3' ];then
             open 'macappstores://apps.apple.com/app/macos-big-sur/id1526878132'
+            OSFunction
         elif [ "$OSVerNumber" == '4' ];then
             open 'macappstores://apps.apple.com/app/macos-catalina/id1466841314'
+            OSFunction
         elif [ "$OSVerNumber" == '5' ];then
             open 'macappstores://apps.apple.com/app/macos-mojave/id1398502828'
+            OSFunction
         elif [ "$OSVerNumber" == '6' ];then
             open 'macappstores://apps.apple.com/app/macos-high-sierra/id1246284741'
+            OSFunction
         elif [ "$OSVerNumber" == 'n' ];then
-            echo '👍开源地址:https://github.com/Ligure-Studio/MacOSHelperShell'
-            echo "\033[34m欢迎反馈问题或建议到 service@ligure.cn ,我们会持续跟进 \033[0m"
-            sleep 1
-            exit 0
+            OSFunction
         else
             echo '❌输入错误!'
         fi
     elif [ "$OSInputNumber" == '8' ];then
-        echo '⚠️ 使用此功能需要先下载相应版本的MacOS，如果您没下载，请重进脚本，使用“一般系统功能”→“[7].下载MacOS”功能进行下载。'
+        echo '⚠️ 使用此功能需要先下载相应版本的macOS，如果您没下载，请重进脚本，使用“一般系统功能”→“[7].下载macOS”功能进行下载。'
         echo '⚠️ 您需要准备一个至少14GB的U盘，且一旦开始制作，您U盘里的所有数据就会全部清空，请慎重决定！'
         echo '没搞完，睡觉了😴'
     elif [ "$OSInputNumber" == 'n' ]
     then
-        echo '👍开源地址:https://github.com/Ligure-Studio/MacOSHelperShell'
-        echo "\033[34m欢迎反馈问题或建议到 service@ligure.cn ,我们会持续跟进 \033[0m"
-        sleep 1
-        exit 0
+        main
     else
         echo '❌输入错误!'
     fi
@@ -186,10 +186,7 @@ function devTools {
         fi
     elif [ "$DevInputNumber" == 'n' ]
     then
-        echo '👍开源地址:https://github.com/Ligure-Studio/MacOSHelperShell'
-        echo "\033[34m欢迎反馈问题或建议到 service@ligure.cn ,我们会持续跟进 \033[0m"
-        sleep 1
-        exit 0
+        main
     else
         echo '❌输入错误!'
     fi
@@ -214,7 +211,7 @@ function hyperOSFunction {
             echo "❌看起来你没有安装smartmontools。为了更好地实现相关功能,我们首先需要安装smartmontools。在安装smartmontools之前,我们需要确认您已经安装了Homebrew。接下来我们会自动检测。"
             if which brew >/dev/null; then
                 echo "✅您安装了Homebrew。我们将会通过brew安装smartmontools。😁"
-                echo "👍smartmotools是MacOS上的一个小工具,可以用来查询硬盘数据,不会弄坏您的电脑。你是否要安装smartmontools?(y/n)"
+                echo "👍smartmotools是macOS上的一个小工具,可以用来查询硬盘数据,不会弄坏您的电脑。你是否要安装smartmontools?(y/n)"
                 read answer
                 if [ $answer == "y" ] || [ $answer == "Y" ]; then
                     brew install smartmontools
@@ -243,10 +240,7 @@ function hyperOSFunction {
         fi
     elif [ "$hyperInputNumber" == 'n' ]
     then
-        echo '👍开源地址:https://github.com/Ligure-Studio/MacOSHelperShell'
-        echo "\033[34m欢迎反馈问题或建议到 service@ligure.cn ,我们会持续跟进 \033[0m"
-        sleep 1
-        exit 0
+        main
     else
         echo '❌输入错误!'
     fi
@@ -297,7 +291,7 @@ function verifyTools {
             echo "❌看起来你没有安装cksfv。为了更好地实现相关功能,我们首先需要安装cksfv.在安装cksfv之前,我们需要确认您已经安装了Homebrew."
             if which brew >/dev/null; then
                 echo "✅您安装了Homebrew.我们将会通过brew安装cksfv.😁"
-                echo "👍cksfv是MacOS上的一个小工具,可以用来校验crc32,不会弄坏您的电脑。你是否要安装cksfv?(y/n)"
+                echo "👍cksfv是macOS上的一个小工具,可以用来校验crc32,不会弄坏您的电脑。你是否要安装cksfv?(y/n)"
                 read answer
                 if [ $answer == "y" ] || [ $answer == "Y" ]; then
                     brew install cksfv
@@ -343,10 +337,7 @@ function verifyTools {
         fi
     elif [ "$verifyInputNumber" == 'n' ]
     then
-        echo '👍开源地址:https://github.com/Ligure-Studio/MacOSHelperShell'
-        echo "\033[34m欢迎反馈问题或建议到 service@ligure.cn ,我们会持续跟进 \033[0m"
-        sleep 1
-        exit 0
+        main
     else
         echo '❌输入错误!'
     fi
@@ -392,10 +383,7 @@ function fixTools {
         fi
     elif [ "$fixInputNumber" == 'n' ]
     then
-        echo '👍开源地址:https://github.com/Ligure-Studio/MacOSHelperShell'
-        echo "\033[34m欢迎反馈问题或建议到 service@ligure.cn ,我们会持续跟进 \033[0m"
-        sleep 1
-        exit 0
+        main
     else
         echo '❌输入错误!'
     fi
