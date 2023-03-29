@@ -2,7 +2,7 @@
 <p align="center">
     <img src="./assets/logo.jpg" width=280/>
 </p>
-<h1 align="center">MacOSHelperShell</h1>
+<h1 align="center">macOSHelperShell</h1>
 <div align="center">   
   <img src="https://img.shields.io/github/stars/Ligure-Studio/MacOSHelperShell?label=Stars" alt="GitHub Stars"/>
   <img src="https://img.shields.io/github/forks/Ligure-Studio/MacOSHelperShell?label=Forks" alt="GitHub Forks"/> 
