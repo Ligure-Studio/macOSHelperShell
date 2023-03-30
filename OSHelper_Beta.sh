@@ -351,6 +351,7 @@ function verifyTools {
 
 function fixTools {
     echo '[1].修复Sideloadly!的Local Anisette在macOS 13.1以上无法使用的问题'
+    echo '[2].软件签名,修复破解软件无法使用的问题'
     echo '[n].退出'
     read fixInputNumber #fix部分输入参数
     if [ "$fixInputNumber" == '1' ]
@@ -368,6 +369,27 @@ function fixTools {
             sudo /usr/libexec/PlistBuddy -c "Add :$Arraykey: string 890E3F5B-9490-4828-8F3F-B6561E513FCC" /Library/Mail/Bundles/SideloadlyPlugin.mailbundle/Contents/Info.plist
             done
             sudo codesign -f -s - /Library/Mail/Bundles/SideloadlyPlugin.mailbundle
+        else
+            echo "❌您没有安装Xcode CLT,是否安装Xcode CLT?(y/n)"
+            read yOrNot
+            if [ $yOrNot == "y" ] || [ $yOrNot == "Y" ]; then
+                echo '⏩开始安装Xcode CLT'
+                xcode-select --install
+                echo '👌🏻理论上来讲你应该已经安装成功了,或者你已经安装过了(报error: command line tools are already installed错误).'
+                echo '🤔如果报其他错(error),那多半是网络问题,请访问 https://developer.apple.com/download/all/ 登录您的Apple ID,然后手动下载.😁'
+                echo '😀请再次尝试修复.'
+            else
+                echo '❎将不会安装Xcode CLT和修复'
+            fi
+        fi
+    elif [ "$fixInputNumber" == '2' ]
+    then
+        if xcode-select -p &> /dev/null; then
+            echo "✅你已经安装了Xcode CLT.接下来我们将为您修复.😁"
+            echo "请将你的app拖进来"
+            read appPathInput 
+            sudo codesign -f -s - "${appPathInput}" && \
+            echo "✅你已成功软件签名.😁"
         else
             echo "❌您没有安装Xcode CLT,是否安装Xcode CLT?(y/n)"
             read yOrNot
