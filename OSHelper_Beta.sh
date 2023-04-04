@@ -1,9 +1,12 @@
 #!/bin/bash
+RED="\033[31m"
+BLUE="\033[34m"
+NC="\033[0m"
 echo '====欢迎使用macOS Helper Shell===='
 echo '😁由Ligure Studio团队维护,基于 MIT LICENSE 开源。'
 echo '👍开源地址:https://github.com/Ligure-Studio/macOSHelperShell'
 echo '❗️为保证功能顺利运行,请在出现Password提示时输入您电脑的开机密码(密码不会在界面上显示)'
-echo  "\033[31m 0.1.1-beta4(classified-unstable) \033[0m"
+echo  -e "${RED} 0.1.1-beta4(classified-unstable) ${NC}"
 echo '------------------------------'
 sleep 1
 # === 开始定义安装 Xcode CLT 函数 ===
@@ -73,6 +76,7 @@ function OSFunction {
     echo '[6].刷新缩略图(适用于缩略图被抢)'
     echo '[7].下载macOS'
     echo '[8].制作macOS可引导安装盘（没写完）'
+    echo '[9].修改截图保存的默认类型'
     echo '[n].退出'
     read OSInputNumber #OS部分输入参数
     if [ "$OSInputNumber" == '1' ]
@@ -163,9 +167,39 @@ function OSFunction {
             echo '❌输入错误!'
         fi
     elif [ "$OSInputNumber" == '8' ];then
-        echo '⚠️ 使用此功能需要先下载相应版本的macOS，如果您没下载，请重进脚本，使用“一般系统功能”→“[7].下载macOS”功能进行下载。'
-        echo '⚠️ 您需要准备一个至少14GB的U盘，且一旦开始制作，您U盘里的所有数据就会全部清空，请慎重决定！'
+        echo '⚠️  使用此功能需要先下载相应版本的macOS，如果您没下载，请重进脚本，使用“一般系统功能”→“[7].下载macOS”功能进行下载。'
+        echo '⚠️  您需要准备一个至少14GB的U盘，且一旦开始制作，您U盘里的所有数据就会全部清空，请慎重决定！'
         echo '没搞完，睡觉了😴'
+    elif [ "$OSInputNumber" == '9' ];then
+        echo '⚠️  请选择你需要修改的图片类型(默认格式是png)'
+        echo '[1].bmp'
+        echo '[2].jpg'
+        echo '[3].jpeg'
+        echo '[4].gif'
+        echo '[5].png'
+        echo '[6].pdf'
+        echo '[7].tiff'
+        echo '[n/N].退出'
+        read imgInputNumber
+        if  [ "${imgInputNumber}" == '1' ]; then
+            defaults write com.apple.screencapture type bmp;killall SystemUIServer && echo '✅ 已修改完成'
+        elif [ "${imgInputNumber}" == '2' ]; then
+            defaults write com.apple.screencapture type jpg;killall SystemUIServer && echo "✅ 已修改完成"
+        elif [ "${imgInputNumber}" == '3' ]; then
+            defaults write com.apple.screencapture type jpeg;killall SystemUIServer && echo '✅ 已修改完成'
+        elif [ "${imgInputNumber}" == '4' ]; then
+            defaults write com.apple.screencapture type gif;killall SystemUIServer && echo '✅ 已修改完成'
+        elif [ "${imgInputNumber}" == '5' ]; then
+            defaults write com.apple.screencapture type png;killall SystemUIServer && echo '✅ 已修改完成'
+        elif [ "${imgInputNumber}" == '6' ]; then
+            defaults write com.apple.screencapture type pdf;killall SystemUIServer && echo '✅ 已修改完成'
+        elif [ "${imgInputNumber}" == '7' ]; then
+            defaults write com.apple.screencapture type tiff;killall SystemUIServer && echo '✅ 已修改完成'
+        elif [ "${imgInputNumber}" == 'n' ]; then
+            OSFunction
+        else
+            echo '❌输入错误!'
+        fi
     elif [ "$OSInputNumber" == 'n' ]
     then
         main
@@ -444,7 +478,7 @@ function main {
     elif [ "$MainInputNumber" == 'n' ]
     then
         echo '👍开源地址:https://github.com/Ligure-Studio/MacOSHelperShell'
-        echo "\033[34m欢迎反馈问题或建议到 service@ligure.cn ,我们会持续跟进 \033[0m"
+        echo -e "${BLUE} 欢迎反馈问题或建议到 service@ligure.cn ,我们会持续跟进 ${NC}"
         sleep 1
         exit 0
     else
