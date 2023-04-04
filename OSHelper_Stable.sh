@@ -1,3 +1,4 @@
+#!/bin/bash
 echo '====欢迎使用macOS Helper Shell===='
 echo '😁由明燊、小叶、Jerry共同开发和维护,基于MIT协议开源'
 echo '👍开源地址:https://github.com/Ligure-Studio/macOSHelperShell'
