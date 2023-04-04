@@ -6,6 +6,25 @@ echo '❗️为保证功能顺利运行,请在出现Password提示时输入您�
 echo  "\033[31m 0.1.1-beta4(classified-unstable) \033[0m"
 echo '------------------------------'
 sleep 1
+# === 开始定义安装 Xcode CLT 函数 ===
+
+function isXcodeCLT() {
+    if [ $yOrNot == "y" ] || [ $yOrNot == "Y" ]; then
+            echo '⏩开始安装Xcode CLT'
+            xcode-select --install
+            echo '👌🏻理论上来讲你应该已经安装成功了,或者你已经安装过了(报error: command line tools are already installed错误).'
+            echo '🤔如果报其他错(error),那多半是网络问题,请访问 https://developer.apple.com/download/all/ 登录您的Apple ID,然后手动下载.😁'
+            echo '😀请再次尝试安装Homebrew.'
+        else
+            echo '❎将不会安装Xcode CLT和Homebrew'
+        fi
+}
+# function testCLT() {
+#         echo "❌您没有安装Xcode CLT,是否安装Xcode CLT?(y/n)"
+#         read yOrNot
+#         isXcodeCLT
+# }
+# === 结束定义安装 Xcode CLT 函数 ===
 
 # ===安装Homebrew函数===
 
@@ -37,15 +56,7 @@ function installBrew {
     else
         echo "❌您没有安装Xcode CLT,是否安装Xcode CLT?(y/n)"
         read yOrNot
-        if [ $yOrNot == "y" ] || [ $yOrNot == "Y" ]; then
-            echo '⏩开始安装Xcode CLT'
-            xcode-select --install
-           echo '👌🏻理论上来讲你应该已经安装成功了,或者你已经安装过了(报error: command line tools are already installed错误).'
-           echo '🤔如果报其他错(error),那多半是网络问题,请访问 https://developer.apple.com/download/all/ 登录您的Apple ID,然后手动下载.😁'
-           echo '😀请再次尝试安装Homebrew.'
-        else
-           echo '❎将不会安装Xcode CLT和Homebrew'
-        fi
+        isXcodeCLT
     fi
 }
 
@@ -329,8 +340,8 @@ function verifyTools {
         read key111
         echo '请输入第二个值'
         read key222
-        key111=`echo $key111 | tr '[:upper:]' '[:lower:]'`
-        key222=`echo $key222 | tr '[:upper:]' '[:lower:]'`
+        key111=$(echo $key111 | tr '[:upper:]' '[:lower:]')
+        key222=$(echo $key222 | tr '[:upper:]' '[:lower:]')
         if [ $key111 == $key222 ]; then
             echo '✅比对通过,两者一致!'
         else
@@ -373,15 +384,7 @@ function fixTools {
         else
             echo "❌您没有安装Xcode CLT,是否安装Xcode CLT?(y/n)"
             read yOrNot
-            if [ $yOrNot == "y" ] || [ $yOrNot == "Y" ]; then
-                echo '⏩开始安装Xcode CLT'
-                xcode-select --install
-                echo '👌🏻理论上来讲你应该已经安装成功了,或者你已经安装过了(报error: command line tools are already installed错误).'
-                echo '🤔如果报其他错(error),那多半是网络问题,请访问 https://developer.apple.com/download/all/ 登录您的Apple ID,然后手动下载.😁'
-                echo '😀请再次尝试修复.'
-            else
-                echo '❎将不会安装Xcode CLT和修复'
-            fi
+            isXcodeCLT
         fi
     elif [ "$fixInputNumber" == '2' ]
     then
@@ -394,15 +397,7 @@ function fixTools {
         else
             echo "❌您没有安装Xcode CLT,是否安装Xcode CLT?(y/n)"
             read yOrNot
-            if [ $yOrNot == "y" ] || [ $yOrNot == "Y" ]; then
-                echo '⏩开始安装Xcode CLT'
-                xcode-select --install
-                echo '👌🏻理论上来讲你应该已经安装成功了,或者你已经安装过了(报error: command line tools are already installed错误).'
-                echo '🤔如果报其他错(error),那多半是网络问题,请访问 https://developer.apple.com/download/all/ 登录您的Apple ID,然后手动下载.😁'
-                echo '😀请再次尝试修复.'
-            else
-                echo '❎将不会安装Xcode CLT和修复'
-            fi
+            isXcodeCLT
         fi
     elif [ "$fixInputNumber" == 'n' ]
     then
@@ -424,6 +419,7 @@ function main {
     echo '[3].进阶系统功能'
     echo '[4].校验专区'
     echo '[5].软件修复专区'
+    echo '[6].测试专区'
     echo '[n].退出'
     read MainInputNumber
     if [ "$MainInputNumber" == '1' ]
@@ -441,6 +437,10 @@ function main {
     elif [ "$MainInputNumber" == '5' ]
     then
     fixTools
+    # elif [ "$MainInputNumber" == '6' ]
+    # then
+    # echo "开始测试"
+    # testCLT
     elif [ "$MainInputNumber" == 'n' ]
     then
         echo '👍开源地址:https://github.com/Ligure-Studio/MacOSHelperShell'
